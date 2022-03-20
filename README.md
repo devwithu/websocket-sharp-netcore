@@ -1,6 +1,11 @@
-![Logo](websocket-sharp_logo.png)
+
+org
+https://github.com/solana-fm/websocket-sharp
+
 
 ## Welcome to WebSocketSharp.NetCore! ##
+
+![Logo](websocket-sharp_logo.png)
 
 websocket-sharp supports:
 
