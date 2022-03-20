@@ -33,31 +33,13 @@ namespace WebSocketSharp.NetCore.Example
         ws.OnOpen += (sender, e) => ws.Send ("Hi, there!");
 
         ws.OnMessage += (sender, e) =>
-            nf.Notify (
-              new NotificationMessage {
-                Summary = "WebSocket Message",
-                Body = !e.IsPing ? e.Data : "Received a ping.",
-                Icon = "notification-message-im"
-              }
-            );
+          Console.WriteLine ($"message : {e.IsText}");
 
         ws.OnError += (sender, e) =>
-            nf.Notify (
-              new NotificationMessage {
-                Summary = "WebSocket Error",
-                Body = e.Message,
-                Icon = "notification-message-im"
-              }
-            );
+          Console.WriteLine ($"OnError : {e.Message}");
 
         ws.OnClose += (sender, e) =>
-            nf.Notify (
-              new NotificationMessage {
-                Summary = String.Format ("WebSocket Close ({0})", e.Code),
-                Body = e.Reason,
-                Icon = "notification-message-im"
-              }
-            );
+          Console.WriteLine ($"OnError : {e.Reason}");
 #if DEBUG
         // To change the logging level.
         ws.Log.Level = LogLevel.Trace;
